@@ -1,5 +1,8 @@
 ---
 
+- name: PythonWebApp
+  hosts: all
+
 - name: Install a list of packages
   apt:
     name: "{{ packages }}"
