@@ -10,6 +10,7 @@
     packages:
     - nginx
     - OpenSSH
+    - curl
 
 - name: enable ufw ssh
   ufw:
@@ -20,3 +21,13 @@
   ufw:
     rule: allow
     name: http
+
+- name: Make sure a service nginx is enable
+  systemd:
+    state: enabled
+    name: nginx
+
+- name: Make sure a service nginx is running
+  systemd:
+    state: started
+    name: nginx
