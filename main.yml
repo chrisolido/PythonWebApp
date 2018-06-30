@@ -1,0 +1,19 @@
+---
+
+- name: Install a list of packages
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - nginx
+    - OpenSSH
+
+- name: enable ufw ssh
+  ufw:
+    rule: allow
+    name: OpenSSH
+
+- name: enable ufw http
+  ufw:
+    rule: allow
+    name: http
