@@ -1,33 +1,33 @@
 ---
 
-- name: PythonWebApp
-  hosts: all
+- hosts: all
+  tasks:
 
-- name: Install a list of packages
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - nginx
-    - OpenSSH
-    - curl
+    - name: Install a list of packages
+      apt:
+        name: "{{ packages }}"
+      vars:
+      packages:
+        - nginx
+        - OpenSSH
+        - curl
 
-- name: enable ufw ssh
-  ufw:
-    rule: allow
-    name: OpenSSH
+    - name: enable ufw ssh
+      ufw:
+        rule: allow
+      name: OpenSSH
 
-- name: enable ufw http
-  ufw:
-    rule: allow
-    name: http
+    - name: enable ufw http
+      ufw:
+        rule: allow
+      name: http
 
-- name: Make sure a service nginx is enable
-  systemd:
-    state: enabled
-    name: nginx
+    - name: Make sure a service nginx is enable
+      systemd:
+        state: enabled
+      name: nginx
 
-- name: Make sure a service nginx is running
-  systemd:
-    state: started
-    name: nginx
+    - name: Make sure a service nginx is running
+      systemd:
+        state: started
+      name: nginx
