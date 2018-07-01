@@ -26,12 +26,23 @@
     become: yes
 
   - name: make www
-    command: sudo mkdir - /var/www
-    when: not p.stat.exists
+    command: sudo la -la /var/www
+    register: result
+    ignore_errors: True
+    become: yes
+
+  - command: sudo mkdir -p /var/www
+    when: result is failed
     become: yes
 
   - name: make demoapp
-    raw: sudo mkdir - /var/www/demoapp
+    command: sudo la -la /var/www/demoapp
+    register: result
+    ignore_errors: True
+    become: yes
+
+  - command: sudo mkdir -p /var/www/demoapp
+    when: result is failed
     become: yes
   
   - name: make python-virtualenv
