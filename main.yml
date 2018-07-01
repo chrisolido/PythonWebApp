@@ -24,3 +24,17 @@
       name: nginx
       state: started
     become: yes
+
+  - name: make www
+    raw: sudo mkdir - /var/www
+    become: yes
+
+  - name: make demoapp
+    raw: sudo mkdir - /var/www/demoapp
+    become: yes
+  
+  - name: make python-virtualenv
+    raw: sudo apt-get install python-virtualenv
+    become: yes
+
+  
