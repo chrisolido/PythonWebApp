@@ -18,12 +18,12 @@
 
     - name: Make sure a service nginx is enable
       systemd:
-      name: nginx  
+        name: nginx  
         state: enabled
       become: yes
 
     - name: Make sure a service nginx is running
       systemd:
+        name: nginx
         state: started
-      name: nginx
       become: yes
