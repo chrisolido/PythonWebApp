@@ -5,6 +5,7 @@
     - name: Install a list of packages
       apt: name={{ packages }} state=installed
       with_items:
+          - python
           - nginx
           - OpenSSH
           - curl
