@@ -46,7 +46,7 @@
     become: yes
   
   - name: make python-virtualenv
-    raw: sudo apt-get install python-virtualenv
+    raw: sudo apt-get install python-virtualenv -y
     become: yes
 
   
