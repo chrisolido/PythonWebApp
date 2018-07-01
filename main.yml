@@ -2,15 +2,15 @@
 # Setup Nginx
 - hosts: all
   tasks:
-      - name: Install a list of packages
-        apt:
-          name: "{{ packages }}"
-          vars:
-            packages:
-              - nginx
-              - OpenSSH
-              - curl
-        become: yes
+    - name: Install a list of packages
+      apt:
+      name: "{{ packages }}"
+      vars:
+        packages:
+          - nginx
+          - OpenSSH
+          - curl
+      become: yes
 
       - name: enable ufw ssh
         raw: sudo ufw disable
