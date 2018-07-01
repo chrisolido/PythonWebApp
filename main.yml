@@ -15,18 +15,18 @@
       - curl
     become: yes
 
-    - name: enable ufw ssh
+  - name: enable ufw ssh
       raw: sudo ufw disable
       become: yes
 
-    - name: Make sure a service nginx is enable
-      systemd:
-        name: nginx  
-        state: enabled
-      become: yes
+  - name: Make sure a service nginx is enable
+    systemd:
+      name: nginx  
+      state: enabled
+    become: yes
 
-    - name: Make sure a service nginx is running
-      systemd:
-        name: nginx
-        state: started
-      become: yes
+  - name: Make sure a service nginx is running
+    systemd:
+      name: nginx
+      state: started
+    become: yes
