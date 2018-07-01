@@ -3,10 +3,8 @@
 - hosts: all
   tasks:
     - name: Install a list of packages
-      apt:
-      name: "{{ packages }}"
-      vars:
-        packages:
+      apt: name={{ packages }} state=installed
+      with_items:
           - nginx
           - OpenSSH
           - curl
@@ -25,5 +23,6 @@
     - name: Make sure a service nginx is running
       systemd:
         name: nginx
+
         state: started
       become: yes
