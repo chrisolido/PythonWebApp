@@ -5,13 +5,15 @@
   pre_tasks:
     - raw: sudo apt-get -y install python-simplejson
   tasks:
-    - name: Install a list of packages
-      apt: name={{ packages }} state=installed
-      with_items:
-        - nginx
-        - OpenSSH
-        - curl
-      become: yes
+
+  - name: Install a list of packages
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - nginx
+      - curl
+    become: yes
 
     - name: enable ufw ssh
       raw: sudo ufw disable
