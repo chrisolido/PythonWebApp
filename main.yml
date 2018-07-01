@@ -22,7 +22,7 @@
   - name: Make sure a service nginx is enable
     systemd:
       name: nginx  
-      state: enabled
+      state: got:enabled
     become: yes
 
   - name: Make sure a service nginx is running
