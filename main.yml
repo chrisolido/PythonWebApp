@@ -45,20 +45,9 @@
     when: result is failed
     become: yes
   
-  - name: install python-pip
-    raw: sudo sudo apt-get install python-pip -y
-    become: yes
-
-  - name: make python-virtualenv
-    raw: sudo pip install virtualenv 
-    become: yes
-
-  - name: create virtualenv
-    raw: virtualenv venv
-
-  - name: create venv
-    raw: virtualenv -p /usr/bin/python2.7 venv
-  
-  - name: source venv
-    raw: source venv/bin/activate 
+  - name: install virtualenv
+    pip:
+      name=virtualenv
+      state=present
+  become: yes
 
