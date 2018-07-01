@@ -30,7 +30,6 @@
     when: not p.stat.exists
     become: yes
 
-
   - name: make demoapp
     raw: sudo mkdir - /var/www/demoapp
     become: yes
