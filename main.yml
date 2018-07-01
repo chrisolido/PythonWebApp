@@ -45,9 +45,4 @@
     when: result is failed
     become: yes
   
-  - name: install virtualenv
-    pip:
-      name=virtualenv
-      state=present
-  become: yes
 
