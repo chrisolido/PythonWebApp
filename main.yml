@@ -23,6 +23,5 @@
     - name: Make sure a service nginx is running
       systemd:
         name: nginx
-
         state: started
       become: yes
