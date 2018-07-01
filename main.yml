@@ -16,8 +16,8 @@
     become: yes
 
   - name: enable ufw ssh
-      raw: sudo ufw disable
-      become: yes
+    raw: sudo ufw disable
+    become: yes
 
   - name: Make sure a service nginx is enable
     systemd:
