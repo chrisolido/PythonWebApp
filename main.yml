@@ -30,7 +30,6 @@
   - name: make www
     command: sudo ls -la /var/www
     register: result
-    ignore_errors: True
     become: yes
 
   - command: sudo mkdir -p /var/www
@@ -40,7 +39,6 @@
   - name: make demoapp
     command: sudo ls -la /var/www/demoapp
     register: result
-    ignore_errors: True
     become: yes
 
   - command: sudo mkdir -p /var/www/demoapp
