@@ -6,11 +6,10 @@
     - raw: zypper -n install python3-virtualenv
   tasks:
 
-  - name: Install the nginx rpm from a remote repo
-    zypper:
-      name: nginx 
+  - zypper:
+      name: nginx
       state: present
-    become: yes
+  become: yes
 
   - name: Make sure a service nginx is running
     systemd:
