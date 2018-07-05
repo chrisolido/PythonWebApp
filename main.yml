@@ -36,7 +36,7 @@
   - name: Copy preinstall to htdocs
     file:
       src: file/preinstall.txt
-      dest: /srv/www/htdocs/preinstall.txt
+      dest: /srv/www/htdocs/
       owner: root
       group: root
       mode: 0755
