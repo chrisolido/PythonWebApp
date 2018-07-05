@@ -6,13 +6,11 @@
     - raw: zypper -n install python3-virtualenv
   tasks:
 
-  - name: Install a list of packages
-    zypper: name={{ packages }} state:latest
-    with_items:
-      - nginx
-      - curl
-    ignore_errors: false
-    become: yes
+- name: Install the nginx rpm from a remote repo
+  zypper:
+    name: nginx
+    state: present
+  become: yes
 
   - name: Make sure a service nginx is running
     systemd:
