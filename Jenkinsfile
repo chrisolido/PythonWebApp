@@ -19,7 +19,7 @@ pipeline {
         stage('second testing pipeline'){
           steps{
 		    echo 'test2'
-                sh 'rm -rf test2'
+                sh 'rm -rf windows'
                 sh 'mkdir windows'
                 sh 'touch windows/test.txt'
                 }
