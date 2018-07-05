@@ -7,7 +7,7 @@ pipeline {
 		    echo 'test1'
                 sh """
                 ssh -ttT root@192.168.0.158
-                cd /var/www/demoapp
+                sudo cd /var/www/demoapp
                 . .env/bin/activate
                 if [[ -f preinstall.txt ]]; then
                 pip install -r preinstall.txt
