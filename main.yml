@@ -34,7 +34,7 @@
     become: yes
 
   - name: Copy preinstall to htdocs
-    file:
+    copy:
       src: file/preinstall.txt
       dest: /srv/www/htdocs/
       owner: root
