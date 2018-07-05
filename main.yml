@@ -3,7 +3,7 @@
 - hosts: all
   gather_facts: no
   pre_tasks:
-    - raw: zypper install python3-virtualenv -n
+    - raw: zypper -n install python3-virtualenv
   ignore_errors: true
   tasks:
 
