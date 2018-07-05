@@ -7,7 +7,7 @@ pipeline {
 		    echo 'test1'
                 sh """
                 ssh -ttT root@192.168.0.158
-                virtualenv ENV
+                /usr/bin/virtualenv ENV
                 . .env/bin/activate
                 if [[ -f preinstall.txt ]]; then
                 pip install -r preinstall.txt
