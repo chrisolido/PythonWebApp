@@ -33,7 +33,15 @@
     command: virtualenv /srv/www/htdocs/myenv -p /usr/bin/python creates="/srv/www/htdocs/myenv"
     become: yes
 
-  - name: Install requirements
+  - name: Copy preinstall to htdocs
+    file:
+      src:file/preinstall.txt
+      dest: /srv/www/htdocs/preinstall.txt
+      owner: root
+      group: root
+      mode: 0755
+      
+  - name: Install preinstall
     pip: 
       requirements=/srv/www/htdocs/preinstall.txt 
       virtualenv=/srv/www/htdocs/myenv
