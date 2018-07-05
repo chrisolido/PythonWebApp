@@ -8,7 +8,7 @@
 
   - name: Install the nginx rpm from a remote repo
     zypper:
-      name: nginx
+      name: nginx 
       state: present
     become: yes
 
