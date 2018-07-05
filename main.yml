@@ -3,7 +3,7 @@
 - hosts: all
   gather_facts: no
   pre_tasks:
-    - raw: zypper install python-virtualenv -n
+    - raw: zypper install python3, python3-devel, python3-pip -n
   tasks:
 
   - name: Install a list of packages
