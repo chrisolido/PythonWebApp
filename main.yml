@@ -5,7 +5,6 @@
   pre_tasks:
     - raw: zypper -n install python3-virtualenv
   tasks:
-
     - zypper:
         name: nginx
         state: present
