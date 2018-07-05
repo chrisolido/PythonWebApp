@@ -6,7 +6,7 @@
     - raw: zypper -n install python3-virtualenv
   tasks:
     - zypper:
-        name: nginx
+        name: 'http://nginx.org/packages/sles/12/x86_64/RPMS/nginx-1.8.0-1.sles12.ngx.x86_64.rpm'
         state: present
       become: yes
 
