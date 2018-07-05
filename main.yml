@@ -40,6 +40,10 @@
     when: result is failed
     become: yes
 
+  - name: Change var
+    raw: sudo mount -o remount,exec /var
+    become: yes
+
   - name: Change MOD
     raw: chmod 777 /var/www/demoapp
     become: yes
