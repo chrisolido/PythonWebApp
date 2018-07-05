@@ -30,7 +30,7 @@
     become: yes
 
   - name: Manually create the initial virtualenv
-    command: virtualenv /srv/www/htdocs/myenv -p python3.4 creates="/srv/www/htdocs/myenv"
+    command: virtualenv /srv/www/htdocs/myenv -p /usr/bin/python creates="/srv/www/htdocs/myenv"
     become: yes
 
   - name: Install requirements
