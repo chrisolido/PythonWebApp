@@ -18,34 +18,23 @@
 
   - name: Make sure a service nginx is running
     systemd:
-      name: nginx
       state: started
+      name: nginx  
     become: yes
 
-  - name: make www
-    command: sudo ls -la /var/www
-    register: result
+  - name: enable service nginx and ensure it is not masked
+    systemd:
+      name: nginx
+      enabled: yes
+      masked: no
     become: yes
 
-  - command: sudo mkdir -p /var/www
-    when: result is failed
+  - name: Manually create the initial virtualenv
+    command: virtualenv /srv/www/htdocs/myenv -p python3.4 creates="/srv/www/htdocs/myenv"
     become: yes
 
-  - name: make demoapp
-    command: sudo ls -la /var/www/demoapp
-    register: result
+  - name: Install requirements
+    pip: 
+      requirements=/srv/www/htdocs/preinstall.txt 
+      virtualenv=/srv/www/htdocs/myenv
     become: yes
-
-  - command: sudo mkdir -p /var/www/demoapp
-    when: result is failed
-    become: yes
-
-  - name: Change var
-    raw: sudo mount -o remount,exec /var
-    become: yes
-
-  - name: Change MOD
-    raw: chmod 777 /var/www/demoapp
-    become: yes
-  
-
