@@ -3,34 +3,8 @@
 - hosts: all
   gather_facts: no
   tasks:
-    - name: Make sure a service nginx is running
-      systemd:
-        state: started
-        name: nginx  
-      become: yes
-
-    - name: enable service nginx and ensure it is not masked
-      systemd:
-        name: nginx
-        enabled: yes
-        masked: no
-      become: yes
-
-    - name: Manually create the initial virtualenv
-      command: virtualenv /srv/www/htdocs/myenv -p /usr/bin/python creates="/srv/www/htdocs/myenv"
-      become: yes
-
-    - name: Copy preinstall to htdocs
-      copy:
-        src: files/preinstall.txt
-        dest: /srv/www/htdocs/
-        owner: root
-        group: root
-        mode: 0755
-      become: yes
+    - zypper:
+      name: apache2
+      state: present
+      disable_recommends: no
       
-    - name: Install preinstall
-      pip: 
-        requirements=/srv/www/htdocs/preinstall.txt 
-        virtualenv=/srv/www/htdocs/myenv
-      become: yes
