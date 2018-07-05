@@ -3,11 +3,11 @@
 - hosts: all
   gather_facts: no
   pre_tasks:
-    - raw: sudo apt-get -y install python-simplejson python-virtualenv
+    - raw: sudo zypper-get -y install python-simplejson python-virtualenv
   tasks:
 
   - name: Install a list of packages
-    apt:
+    zypper:
       name: "{{ packages }}"
     vars:
       packages:
