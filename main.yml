@@ -41,7 +41,7 @@
     become: yes
 
   - name: Change MOD
-    raw: chmod -r 777 /var/www/demoapp
+    raw: chmod 777 /var/www/demoapp
     become: yes
   
 
