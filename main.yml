@@ -1,10 +1,8 @@
 ---
-# Setup Nginx
 - hosts: all
   gather_facts: no
   tasks:
     - zypper:
-      name: apache2
-      state: present
-      disable_recommends: no
-      
+        name: apache2
+        state: present
+      tags: setup
