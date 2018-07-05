@@ -5,6 +5,7 @@ pipeline {
         stage('testing pipeline'){
           steps{
 		    echo 'test1'
+                ssh root:olido42!@192.169.0.158
                 sh """
                 cd /var/www/demoapp
                 . .env/bin/activate
