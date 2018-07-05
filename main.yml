@@ -8,10 +8,6 @@
 
     - zypper:
         name: nginx
-        update_cache: yes
-        type: package
-        disable_recommends: yes 
-        disable_gpg_check: yes
         state: present
       become: yes
 
