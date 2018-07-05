@@ -2,8 +2,6 @@
 # Setup Nginx
 - hosts: all
   gather_facts: no
-  pre_tasks:
-    - raw: zypper -n install python3-virtualenv
   tasks:
     - name: Make sure a service nginx is running
       systemd:
