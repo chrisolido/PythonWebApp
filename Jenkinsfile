@@ -5,14 +5,14 @@ pipeline {
         stage('testing pipeline'){
           steps{
 		    echo 'test1'
-                ssh root:olido42!@192.169.0.158
+                ssh root@192.169.0.158
                 sh """
                 cd /var/www/demoapp
                 . .env/bin/activate
                 if [[ -f preinstall.txt ]]; then
                 pip install -r preinstall.txt
                 fi
-                pip install -r test.txt
+                pip install -r preinstall.txt
                 ./manage.py test --noinput
                 """
                 }
