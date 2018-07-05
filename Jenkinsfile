@@ -24,15 +24,6 @@ pipeline {
                 sh 'touch test2/test.txt'
                 }
         }
-                stage('third testing pipeline'){
-          steps{
-		    echo 'test3'
-                sh 'rm -rf test3'
-                sh 'mkdir test3'
-                sh 'touch test3
-                /test.txt'
-                }
-        }
 
 }
 }
