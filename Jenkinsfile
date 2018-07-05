@@ -20,8 +20,8 @@ pipeline {
           steps{
 		    echo 'test2'
                 sh 'rm -rf test2'
-                sh 'mkdir test2'
-                sh 'touch test2/test.txt'
+                sh 'mkdir windows'
+                sh 'touch windows/test.txt'
                 }
         }
 
