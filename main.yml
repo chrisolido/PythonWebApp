@@ -4,6 +4,7 @@
   gather_facts: no
   pre_tasks:
     - raw: zypper install python3-virtualenv -n
+  ignore_errors: true
   tasks:
 
   - name: Install a list of packages
@@ -13,6 +14,7 @@
       packages:
       - nginx
       - curl
+    ignore_errors: true
     become: yes
 
   - name: enable ufw ssh
