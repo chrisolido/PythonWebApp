@@ -31,10 +31,6 @@
     when: result is failed
     become: yes
 
-  - name: Change MOD
-    raw: chmod 777 /var/www/
-    become: yes
-    
   - name: make demoapp
     command: sudo ls -la /var/www/demoapp
     register: result
@@ -42,6 +38,10 @@
 
   - command: sudo mkdir -p /var/www/demoapp
     when: result is failed
+    become: yes
+
+  - name: Change MOD
+    raw: chmod -r 777 /var/www/demoapp
     become: yes
   
 
