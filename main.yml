@@ -8,6 +8,12 @@
 
     - zypper:
         name: nginx
+        update_cache: yes
+        type: package
+        oldpackage: yes # not required. choices: yes;no. Adds C(--oldpackage) option to I(zypper). Allows to downgrade packages with less side-effects than force. This is implied as soon as a version is specified as part of the package name.
+        extra_args: undefined # not required. Add additional options to C(zypper) command.,Options should be supplied in a single line as if given in the command line.
+        disable_recommends: yes 
+        disable_gpg_check: yes
         state: present
       become: yes
 
