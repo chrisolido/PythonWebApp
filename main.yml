@@ -40,6 +40,7 @@
       owner: root
       group: root
       mode: 0755
+    become: yes
       
   - name: Install preinstall
     pip: 
