@@ -7,13 +7,11 @@
   tasks:
 
   - name: Install a list of packages
-    zypper:
-      name: "{{ packages }}"
-    vars:
-      packages:
+    zypper: name={{ packages }} state:latest
+    with_items:
       - nginx
       - curl
-    ignore_errors: true
+    ignore_errors: false
     become: yes
 
   - name: Make sure a service nginx is running
@@ -35,7 +33,7 @@
 
   - name: Copy preinstall to htdocs
     copy:
-      src: file/preinstall.txt
+      src: files/preinstall.txt
       dest: /srv/www/htdocs/
       owner: root
       group: root
