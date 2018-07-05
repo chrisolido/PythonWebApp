@@ -3,7 +3,7 @@
 - hosts: all
   gather_facts: no
   pre_tasks:
-    - raw: zypper install python-simplejson python-virtualenv -n
+    - raw: zypper install python-virtualenv -n
   tasks:
 
   - name: Install a list of packages
