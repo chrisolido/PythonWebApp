@@ -16,10 +16,6 @@
     ignore_errors: true
     become: yes
 
-  - name: enable ufw ssh
-    raw: sudo ufw disable
-    become: yes
-
   - name: Make sure a service nginx is running
     systemd:
       name: nginx
