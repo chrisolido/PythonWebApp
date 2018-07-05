@@ -12,11 +12,11 @@
     state: present
   become: yes
 
-  - name: Make sure a service nginx is running
-    systemd:
-      state: started
-      name: nginx  
-    become: yes
+- name: Make sure a service nginx is running
+  systemd:
+    state: started
+    name: nginx  
+  become: yes
 
   - name: enable service nginx and ensure it is not masked
     systemd:
