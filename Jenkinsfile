@@ -6,7 +6,7 @@ pipeline {
           steps{
 		    echo 'test1'
                 sh """
-                ssh root@192.169.0.158
+                ssh -ttT root@192.169.0.158
                 cd /var/www/demoapp
                 . .env/bin/activate
                 if [[ -f preinstall.txt ]]; then
